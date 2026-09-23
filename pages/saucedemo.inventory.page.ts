@@ -21,4 +21,16 @@ export class InventoryPage {
     const addToCartBtn = this.page.locator(`[data-test="add-to-cart-${formattedName}"]`);
     await addToCartBtn.click();
   }
+
+// Bổ sung thêm phương thức goto này vào
+  async goto() {
+    await this.page.goto('https://www.saucedemo.com/inventory.html');
+  }
+
+// Thêm phương thức addToCart linh hoạt theo tên nút (data-test slug)
+  async addToCart(productSlug: string) {
+    // Tìm nút add-to-cart theo data-test, ví dụ: 'add-to-cart-sauce-labs-backpack'
+    await this.page.locator(`[data-test="add-to-cart-${productSlug}"]`).click();
+  }
+
 }
