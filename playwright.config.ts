@@ -5,6 +5,9 @@ export default defineConfig({
   testDir: './tests',
   fullyParallel: true,
 
+  // Bổ sung cấu hình Reporter xuất ra HTML và luôn mở trên trình duyệt
+  reporter: [['html', { open: 'always' }]],
+
   projects: [
     // 1. Setup Project: Chạy đăng nhập trước và tạo file session
     {
@@ -23,5 +26,8 @@ export default defineConfig({
       // Đảm bảo bước setup hoàn tất thành công mới chạy project này
       dependencies: ['setup'],
     },
+
+
+    
   ],
 });
